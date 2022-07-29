@@ -5,8 +5,6 @@ import Cartcards from "./Cartcards";
 const CartPage = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [price, setPrice] = useState(0);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     getProducts();
