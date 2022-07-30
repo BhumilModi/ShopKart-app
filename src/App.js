@@ -1,23 +1,30 @@
-import { useState } from "react";
-import ReactDOM from "react-dom/client";
+import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";
+import { UserContext } from "./hooks/UserContext"
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
+
+  const { user } = useContext(UserContext)
+  console.log(user.auth)
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/home" element={<Home loggedIn={loggedIn} />} />
-        <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/signin" element={<Signin setLoggedIn={setLoggedIn} />} />
-        <Route path="/cart" element={<Cart loggedIn={loggedIn} />} />
-      </Routes>
+      {user.auth ? (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signin" element={<Signin />} />
+        </Routes>
+      )}
     </BrowserRouter>
-  );
+  )
 }
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+

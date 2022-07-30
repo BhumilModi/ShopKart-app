@@ -3,7 +3,7 @@ import React from "react";
 import {AiFillHeart} from "react-icons/ai";
 import {FaCartPlus} from "react-icons/fa";
 
-const Cards = ({product}) => {
+const Cards = ({product, setModal, setModalProduct}) => {
   const addToCart = () => {
     axios({
       method: "post",
@@ -19,17 +19,23 @@ const Cards = ({product}) => {
     });
   };
   return (
-    <div className="w-[250px] bg-white shadow-md h-[300px] rounded-md">
+    <div
+      className="w-[250px] bg-white shadow-md h-[300px] rounded-md cursor-pointer"
+      onClick={() => {
+        setModal(true);
+        setModalProduct(product);
+      }}
+    >
       <img
         src={product.image}
         alt=""
         className="h-[125px] w-full object-cover"
       />
       <div className="p-4">
-        <h1 className="text-[14px] text-gray-500 text-semibold">
+        <h1 className="text-[14px] text-gray-500 font-semibold">
           {product.title}
         </h1>
-        <h1 className="text-[14px] text-gray-500 text-semibold">
+        <h1 className="text-[14px] text-gray-500 font-semibold">
           {" "}
           Rs. {product.amount}
         </h1>

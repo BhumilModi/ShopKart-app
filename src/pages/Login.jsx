@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Navbar from "../components/Navbar";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
+import {UserContext} from "../hooks/UserContext";
 
-const Login = ({setLoggedIn}) => {
+const Login = () => {
   const [failLogin, setfailLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const {login} = useContext(UserContext);
 
   const userLogIn = () => {
     axios({
@@ -19,9 +20,7 @@ const Login = ({setLoggedIn}) => {
       },
     })
       .then((res) => {
-        navigate("/home");
-        setLoggedIn(true);
-        // console.log(res);
+        login(email);
       })
       .catch((err) => {
         console.log(err);

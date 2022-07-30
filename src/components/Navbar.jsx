@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {HiShoppingCart} from "react-icons/hi";
 import {useNavigate} from "react-router-dom";
+import {UserContext} from "../hooks/UserContext";
 
-const Navbar = ({loggedIn, setLoggedIn}) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const {user, logout} = useContext(UserContext);
   return (
     <div className="bg-[#0379ed] h-[10vh]">
       <div className="w-[900px] flex justify-between mx-auto items-center">
@@ -12,20 +14,26 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
           <div
             className="text-[20px] text-white mx-4 cursor-pointer"
             onClick={() => {
-              navigate("/home");
+              navigate("/");
             }}
           >
             Products
           </div>
-          <div
-            className="text-[20px] text-white mx-4 cursor-pointer"
-            onClick={() => {
-              navigate("/");
-              setLoggedIn(false);
-            }}
-          >
-            {loggedIn ? "Logout" : "Login"}
-          </div>
+          {user.auth ? (
+            <div
+              className="text-[20px] text-white mx-4 cursor-pointer"
+              onClick={logout}
+            >
+              Logout
+            </div>
+          ) : (
+            <div
+              className="text-[20px] text-white mx-4 cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              Login
+            </div>
+          )}
           <div
             className="text-[24px] mt-2 ml-4 cursor-pointer"
             onClick={() => {
