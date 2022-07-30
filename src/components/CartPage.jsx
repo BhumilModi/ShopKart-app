@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Cartcards from "./Cartcards";
+import Modal from "./Modal";
+import {useNavigate} from "react-router-dom";
 
 const CartPage = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [modal, setModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts();
+    setTimeout(() => openModal(), 3000);
   }, []);
 
   const getProducts = () => {
@@ -21,6 +26,16 @@ const CartPage = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const openModal = () => {
+    setModal(true);
+    deleteAllpost();
+  };
+
+  const deleteAllpost = () => {
+    const productId = products.map((product) => product.id);
+    productId.forEach((id) => this.deletePost(id));
   };
 
   if (loading) return <p>Loading...</p>;
@@ -55,9 +70,13 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-      <button className="mx-5 mt-5 px-5 py-2 rounded-md text-white bg-[#0379ed]">
+      <button
+        className="mx-5 mt-5 px-5 py-2 rounded-md text-white bg-[#0379ed]"
+        onClick={() => openModal()}
+      >
         Place order
       </button>
+      {modal && <Modal />}
     </div>
   );
 };
