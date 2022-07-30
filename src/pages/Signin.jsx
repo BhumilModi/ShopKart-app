@@ -1,12 +1,13 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Navbar from "../components/Navbar";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
+import {UserContext} from "../hooks/UserContext";
 
-const Signin = ({setLoggedIn}) => {
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const {login} = useContext(UserContext);
   const userSignIn = () => {
     axios({
       method: "post",
@@ -16,8 +17,9 @@ const Signin = ({setLoggedIn}) => {
         password,
       },
     }).then((res) => {
-      navigate("/home");
-      setLoggedIn(true);
+      // navigate("/");
+      // setLoggedIn(true);
+      login(email);
     });
   };
 

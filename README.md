@@ -2,17 +2,15 @@
 
 ## Overview
 
-To complete this assessment, you will need to use this [Ecommerce-boilerplate](https://github.com/gurukishore111/Ecommerce-boilerplate) web app.
+To submit this assessment, I have used React Framework and uploaded the code on (https://github.com/BhumilModi/krypto-assesment)this github repository.
 
 The purpose of this assessment is to assess your **skills and approach to composing a simple web app** given an API feed.
 
-## What to do?
+## What I did?
 
-Your goal is to implement an eCommerce application. The CSS framework/library is totally up to you.
+We had to Create a E-Commerce website using React , in addition to that I user Tailwind CSS.
 
-Although it's a very basic exercise, we will be looking for simple, well-designed, well-commented, and tested code in the submission.
-
-Please include a `README` with setup instructions and any other documentation you created as part of your solution.
+I have include a `README` with setup instructions. There are no other Documentation.
 
 Also, add very short info for the following to your `README`:
 
@@ -20,9 +18,11 @@ Also, add very short info for the following to your `README`:
 - Are there any improvements you could make to your submission?
 - What would you do differently if you were allocated more time?
 
-Once you complete implementation, please add the link to the hosted repository (e.g. Github). Alternatively, you may submit your code as a ZIP file too.
+Application Functionalities:
 
-(NOTE: You have to use the latest version of v18 and react-router-dom v6)
+- There is user Authentication using useContext Hook , a person can login or signup using email and password.
+- Once logged in a person can see all the products , on clicking the product a modal appears where one can add product to favourites or add to cart
+- Cart Page where they can see all the products added to the cart also place order shows a modal for confirmation and empty the cart.
 
 ## How should the application work?
 
@@ -58,7 +58,7 @@ The user of this react application should be able to view all the products. The 
 
 <img width="1415" alt="Screenshot 2022-07-24 at 10 50 18 AM" src="https://user-images.githubusercontent.com/52570524/180701661-a587033d-4616-40f8-9260-dfd3e8b97152.png">
 
-<img width="1472" alt="Screenshot 2022-07-24 at 10 51 16 AM" src="https://user-images.githubusercontent.com/52570524/180701674-31c7e11c-56b3-4f24-83c4-e9d582c4b3f8.png">
+<img width="1472" alt="Screenshot 2022-07-24 at 10 51 16 AM" src="/photos/confirmation.png">
 
 ## API Usage
 
@@ -71,11 +71,3 @@ API can be launched using npm run server.
 | /favourites | Lists all available favourites
 
 More info about API usage can be found at the [Postman Collection](https://www.getpostman.com/collections/9f28d57ae334429e1f1f)
-
-## Bonus
-
-- Feel free to add functionality (not mandatory)
-- Use redux/context for state management
-- Well explained readme (screenshot etc)
-
----
