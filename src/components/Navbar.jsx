@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {HiShoppingCart} from "react-icons/hi";
 import {useNavigate} from "react-router-dom";
 import {UserContext} from "../hooks/UserContext";
+import {AiFillHeart} from "react-icons/ai";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,6 +42,14 @@ const Navbar = () => {
             }}
           >
             <HiShoppingCart />
+          </div>
+          <div
+            className="text-[24px] mt-2 ml-4 cursor-pointer"
+            onClick={() => {
+              navigate("/favourites");
+            }}
+          >
+            <AiFillHeart />
           </div>
         </div>
       </div>

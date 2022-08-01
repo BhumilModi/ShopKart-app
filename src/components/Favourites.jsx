@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from "react";
-import Cards from "./Cards";
 import axios from "axios";
 import ProductModal from "./ProductModal";
+import Favouritescard from "./FavouritesCard";
 
-const Homepage = () => {
+const Favourites = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
@@ -16,7 +16,7 @@ const Homepage = () => {
 
   const getProducts = () => {
     axios
-      .get("http://localhost:5000/products")
+      .get("http://localhost:5000/favourites")
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
@@ -28,13 +28,25 @@ const Homepage = () => {
 
   if (loading) return <p>Loading...</p>;
 
+  if (products.length === 0)
+    return (
+      <div className="h-[30vh] flex flex-col justify-center items-center font-bold text-[36px]">
+        No Favourites
+        <div className="mt-5 font-bold text-[24px] text-black">
+          Go Back to home
+        </div>
+      </div>
+    );
+
   return (
     <div className="w-[1350px] mx-auto h-full py-5 grid grid-cols-5 gap-5">
       {products.map((product) => (
-        <Cards
+        <Favouritescard
           product={product}
-          setModal={setModal}
+          products={products}
+          setProducts={setProducts}
           setModalProduct={setModalProduct}
+          setModal={setModal}
         />
       ))}
       {modal && (
@@ -48,4 +60,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Favourites;

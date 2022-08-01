@@ -9,6 +9,16 @@
       "email": "test@test.com",
       "password": "$2a$10$rrdHFSCG6z7CmXxs8hj59ugO0refu6Gz.HdIvlE9UfMjlSWoUgC9G",
       "id": 2
+    },
+    {
+      "email": "it@gmail.com",
+      "password": "$2a$10$dRRZmiA90M5qtms242SwWuViZwTOcCco7h7dEKt6rMNapp92zLw.2",
+      "id": 3
+    },
+    {
+      "email": "test2@test.com",
+      "password": "$2a$10$fgVvO92MrA582zca.n1ep.JyVjbUf8kUCvvT1vVryrG5IIxQ6UOMG",
+      "id": 4
     }
   ],
   "products": [
@@ -110,22 +120,5 @@
     }
   ],
   "orders": [],
-  "favourites": [
-    {
-      "id": 1,
-      "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-      "description": "What does it feel like to witness climate change playing out in real-time? #notcool. Sound the alarm with our Women's Climate Change T-shirt, printed on organic cotton in our Carbon Neutral factory. Plus, when it's worn out you can send it back to us to be remade into something new. That's what real sustainability means to us.",
-      "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-      "amount": "200",
-      "rating": "4.0"
-    },
-    {
-      "id": 4,
-      "title": "Jockey - Men's Regular Fit Round Neck Half Sleeved T-Shirt",
-      "description": "What does it feel like to witness climate change playing out in real-time? #notcool. Sound the alarm with our Women's Climate Change T-shirt, printed on organic cotton in our Carbon Neutral factory. Plus, when it's worn out you can send it back to us to be remade into something new. That's what real sustainability means to us.",
-      "image": "https://i.pinimg.com/564x/26/ee/90/26ee903549b8b69635152f5db58264b2.jpg",
-      "amount": "350",
-      "rating": "4.0"
-    }
-  ]
+  "favourites": []
 }

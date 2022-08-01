@@ -4,7 +4,9 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";
+
 import { UserContext } from "./hooks/UserContext"
+import Favourite from "./pages/Favourite";
 
 export default function App() {
 
@@ -17,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/favourites" element={<Favourite />} />
         </Routes>
       ) : (
         <Routes>

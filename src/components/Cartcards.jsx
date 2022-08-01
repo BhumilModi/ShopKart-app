@@ -2,11 +2,12 @@ import axios from "axios";
 import React from "react";
 import {ImCancelCircle} from "react-icons/im";
 
-const Cartcards = ({product}) => {
+const Cartcards = ({product, products, setProducts}) => {
   const removeItem = () => {
-    axios
-      .delete(`http://localhost:5000/orders/${product.id}`)
-      .then(() => window.location.reload());
+    axios.delete(`http://localhost:5000/orders/${product.id}`).then(() => {
+      setProducts(products.filter((p) => p.id !== product.id));
+      console.log("deleted");
+    });
   };
 
   return (

@@ -1,9 +1,15 @@
 import axios from "axios";
 import React from "react";
-import {AiFillHeart} from "react-icons/ai";
+import {ImCancelCircle} from "react-icons/im";
 import {FaCartPlus} from "react-icons/fa";
 
-const Cards = ({product, setModal, setModalProduct}) => {
+const Favouritescard = ({
+  product,
+  setModal,
+  setModalProduct,
+  products,
+  setProducts,
+}) => {
   const addToCart = () => {
     axios({
       method: "post",
@@ -11,11 +17,9 @@ const Cards = ({product, setModal, setModalProduct}) => {
       data: product,
     });
   };
-  const addToFav = () => {
-    axios({
-      method: "post",
-      url: " http://localhost:5000/favourites",
-      data: product,
+  const removefav = () => {
+    axios.delete(`http://localhost:5000/favourites/${product.id}`).then(() => {
+      setProducts(products.filter((p) => p.id !== product.id));
     });
   };
   return (
@@ -47,9 +51,9 @@ const Cards = ({product, setModal, setModalProduct}) => {
       <div className="mt-4 flex justify-between px-6">
         <div
           className="text-[24px] text-gray-500 cursor-pointer"
-          onClick={addToFav}
+          onClick={removefav}
         >
-          <AiFillHeart />
+          <ImCancelCircle color="red" />
         </div>
         <div
           className="text-[24px] text-gray-500 cursor-pointer"
@@ -62,4 +66,4 @@ const Cards = ({product, setModal, setModalProduct}) => {
   );
 };
 
-export default Cards;
+export default Favouritescard;
