@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState} from "react";
 import axios from "axios";
+import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import Cartcards from "./Cartcards";
 import Modal from "./Modal";
-import {useNavigate} from "react-router-dom";
 
 const CartPage = () => {
   const [products, setProducts] = useState(null);
@@ -63,7 +63,14 @@ const CartPage = () => {
   };
 
   if (loading) return <p>Loading...</p>;
-  return (
+  return products.length === 0 ? (
+    <div className="h-[30vh] flex flex-col justify-center items-center font-bold text-[36px]">
+      Nothing in Cart.
+      <div className="mt-5 font-bold text-[24px] text-black">
+        Go Back to home.
+      </div>
+    </div>
+  ) : (
     <div className="w-[1200px] mx-auto h-full py-5 ">
       <div className="flex">
         <div className="w-[550px] mx-5 bg-white p-5 shadow-md rounded-md">
@@ -76,31 +83,27 @@ const CartPage = () => {
             />
           ))}
         </div>
-        {products.length > 0 && (
-          <div className="w-[350px] h-[300px] bg-white p-5 shadow-md rounded-md">
-            <h1 className="font-bold text-[26px] text-gray-500">
-              Price Details
-            </h1>
-            <div className="border-b-2 border-black">
-              <div className="flex justify-between text-[14px] font-semibold my-4">
-                <h2>Price</h2>
-                <h2>{sum}</h2>
-              </div>
-              <div className="flex justify-between text-[14px] font-semibold my-4">
-                <h2>Discount</h2>
-                <h2>100</h2>
-              </div>
-              <div className="flex justify-between text-[14px] font-semibold my-4">
-                <h2>Delivery</h2>
-                <h2>50</h2>
-              </div>
+        <div className="w-[350px] h-[300px] bg-white p-5 shadow-md rounded-md">
+          <h1 className="font-bold text-[26px] text-gray-500">Price Details</h1>
+          <div className="border-b-2 border-black">
+            <div className="flex justify-between text-[14px] font-semibold my-4">
+              <h2>Price</h2>
+              <h2>{sum}</h2>
             </div>
-            <div className="flex justify-between text-[20px] font-bold my-8">
-              <h2>Total</h2>
-              <h2>{total}</h2>
+            <div className="flex justify-between text-[14px] font-semibold my-4">
+              <h2>Discount</h2>
+              <h2>100</h2>
+            </div>
+            <div className="flex justify-between text-[14px] font-semibold my-4">
+              <h2>Delivery</h2>
+              <h2>50</h2>
             </div>
           </div>
-        )}
+          <div className="flex justify-between text-[20px] font-bold my-8">
+            <h2>Total</h2>
+            <h2>{total}</h2>
+          </div>
+        </div>
       </div>
       <button
         className="mx-5 mt-5 px-5 py-2 rounded-md text-white bg-[#0379ed]"

@@ -19,6 +19,11 @@
       "email": "test2@test.com",
       "password": "$2a$10$fgVvO92MrA582zca.n1ep.JyVjbUf8kUCvvT1vVryrG5IIxQ6UOMG",
       "id": 4
+    },
+    {
+      "email": "abcd.bhu@gmail.com",
+      "password": "$2a$10$w8bmZDHDTDFk7uy9dkkzK.jG9g1dJo5TJHNrUFwttQnhFd0fEuWo6",
+      "id": 5
     }
   ],
   "products": [
