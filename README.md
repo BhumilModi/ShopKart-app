@@ -24,15 +24,6 @@ Application Functionalities:
 - Once logged in a person can see all the products , on clicking the product a modal appears where one can add product to favourites or add to cart
 - Cart Page where they can see all the products added to the cart also place order shows a modal for confirmation and empty the cart.
 
-## How should the application work?
-
-The user of this react application should be able to view all the products. The application should have the following workflow,
-
-1. Create the login/register functionality.
-2. Once the user is authenticated
-3. Users can add the products to the cart page
-4. Also user can add their favourite products
-
 ## Development Setup
 
 - Clone this repo
